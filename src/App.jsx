@@ -1,157 +1,214 @@
-import { useState } from 'react'
-import './App.css'
-import Header from './GlobalComponents/Header'
-import Fotter from './GlobalComponents/Fotter'
-import Services from './GlobalComponents/Services'
-import BlogSection from './GlobalComponents/BlogSection'
-import { CategoryButton, CategoryContent } from './GlobalComponents/CategoryContent'
-import { library } from '@fortawesome/fontawesome-svg-core';
-import { fab } from '@fortawesome/free-brands-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { fas } from '@fortawesome/free-solid-svg-icons';
-import { useEffect } from 'react'
-library.add(fab); 
+import { useState } from "react";
+import "./App.css";
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { fab } from "@fortawesome/free-brands-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { fas } from "@fortawesome/free-solid-svg-icons";
+import { useEffect } from "react";
+import ServiceSection from "./Components/ServiceSection";
+library.add(fab);
 library.add(fas);
+import Card from "./Components/Card";
+import ProfileCard from "./Components/ProfileCard";
+
+
 
 function App() {
-  const [selectedCategory, setSelectedCategory] = useState('Drinks & Coffee');
-  const categories = [
-    'Food & Snacks',
-    'Drinks & Coffee',
-    'Gumball & Candy',
-    'Cold & Frozen',
-    'Custom Machines',
+  // src/data/cardsData.js
+  const cardsData = [
+    {
+      name: "Alan Smith",
+      icon: "https://askproject.net/evecon/wp-content/uploads/sites/126/2023/01/millennials-multiracial-guys-showing-various-emoti2-T7HDT9D.jpg",
+      room: "Room 1",
+      date: "Jan 9, 2023",
+      time: "10:00 AM",
+      title: "Business and Marketing",
+      description:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus.",
+    },
+    {
+      name: "Jane Doe",
+      icon: "https://askproject.net/evecon/wp-content/uploads/sites/126/2023/01/millennials-multiracial-guys-showing-various-emoti2-T7HDT9D.jpg",
+      room: "Room 2",
+      date: "Feb 15, 2023",
+      time: "11:00 AM",
+      title: "Technology and Innovation",
+      description:
+        "Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui.",
+    },
+    {
+      name: "Jane Doe",
+      icon: "https://askproject.net/evecon/wp-content/uploads/sites/126/2023/01/millennials-multiracial-guys-showing-various-emoti2-T7HDT9D.jpg",
+      room: "Room 2",
+      date: "Feb 15, 2023",
+      time: "11:00 AM",
+      title: "Technology and Innovation",
+      description:
+        "Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui.",
+    },
+    {
+      name: "Alan Smith",
+      icon: "https://askproject.net/evecon/wp-content/uploads/sites/126/2023/01/millennials-multiracial-guys-showing-various-emoti2-T7HDT9D.jpg",
+      room: "Room 1",
+      date: "Jan 9, 2023",
+      time: "10:00 AM",
+      title: "Business and Marketing",
+      description:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus.",
+    },
   ];
-
-  const [currentWordIndex, setCurrentWordIndex] = useState(0);
-  const words = ['Technology', 'Gamer'];
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentWordIndex((prevIndex) => (prevIndex + 1) % words.length);
-    }, 4000);
-
-    return () => clearInterval(interval);
-  }, []); 
-  
 
   return (
     <>
-      <div className="Info">
-        <Header />
-        <div className="flex items-center max-md:justify-center h-[100vh] md:ml-28">
-      <div className="max-w-sm p-8 m-2 bg-white shadow-lg lg:w-1/2">
-        <h2 className="text-2xl font-bold text-gray-900 transition duration-300 ease-in-out">
-          The Modern Industry of{' '}
-          <span className="text-orange-500">{words[currentWordIndex]}</span>
-        </h2>
-        <p className="mt-4 text-gray-500">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim nostrud.
-        </p>
-        <div className="flex mt-6 space-x-4">
-          <button className="px-4 py-2 text-white transition duration-300 ease-in-out bg-orange-500 rounded hover:bg-orange-600 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-opacity-50">
-            Contact Us
-          </button>
-          <button className="flex items-center text-gray-900 transition duration-300 ease-in-out hover:text-orange-500 focus:outline-none">
-            <FontAwesomeIcon icon="fa-solid fa-play" className="m-1" />
-            Watch Video
-          </button>
+      <div className="w-full h-auto ">
+        <div className="flex flex-col items-center justify-center max-w-screen-xl mx-auto my-20">
+           <div className="max-w-2xl my-3 mx-3 overflow-hidden bg-[#EBE8FF] md:max-w-4xl transition-background transition-border transition-border-radius transition-box-shadow duration-300 hover:shadow-[7px_7px_0px_0px_rgb(35,10,78)]">
+      <div className="p-1 md:flex md:p-8">
+        <div className="flex flex-col items-center justify-center p-4 md:flex-shrink-0">
+          <div className="flex items-center justify-center">
+            <img
+              className="object-cover w-48 h-48 rounded-full shadow-lg md:w-48"
+              src={ cardsData[0].icon}
+              alt="Profile"
+            />
+          </div>
+          <h2 className="mt-4 font-sans text-xl text-center text-black max-md:mt-6">
+            {cardsData[0].name}
+          </h2>
+        </div>
+        <div className="p-8">
+          <div className="flex flex-wrap items-center justify-between">
+            <div className="p-1 text-sm font-semibold tracking-wide text-white uppercase bg-[#2C094E] ">
+              {cardsData[0].room}
+            </div>
+            <div>
+              <span className="text-gray-600">{cardsData[0].date}</span> •{" "}
+              <span className="text-gray-600">{cardsData[0].time}</span>
+            </div>
+          </div>
+          <h1 className="block mt-4 text-2xl font-semibold leading-tight text-[#230A4E]">
+            {cardsData[0].title}
+          </h1>
+          <p className="mt-2 text-gray-600">
+            {cardsData[0].description}
+          </p>
+          <a
+            href="#"
+            className="block mt-4 text-[#2C094E] hover:text-[#562C8A]"
+          >
+            Read more <FontAwesomeIcon icon="fa-solid fa-arrow-right" />
+          </a>
         </div>
       </div>
     </div>
+        </div>
+        {/* EVENT DETAIL */}
+        <div className="w-full h-auto mt-4 ">
+          <div className="flex flex-col items-center justify-center max-w-screen-xl mx-auto">
+            <div className=" md:grid md:grid-cols-3 md:gap-2">
+              <div className="col-span-2 ">
 
-        <div className="grid grid-cols-2 max-md:grid-cols-1">
-          <div className="max-w-full md:p-[8%] p-8 bg-gray-900 shadow-lg">
-            <h2 className="mb-4 text-xl font-semibold text-orange-500">
-              Who We Are
-            </h2>
-            <h1 className="mb-4 text-3xl font-bold text-white">
-              The One Stop Solution for Your Industries
-            </h1>
-            <p className="mb-8 text-white">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris.
-            </p>
-            <div className="mb-6">
-              <div className="flex items-center justify-between mb-2 text-white">
-                <span>Saving You Time</span>
-                <span>90%</span>
-              </div>
-              <div className="w-full bg-gray-700  h-2.5">
-                <div
-                  className="bg-orange-500 h-2.5 "
-                  style={{ width: "90%" }}
-                ></div>
-              </div>
-            </div>
-            <div className="mb-8">
-              <div className="flex items-center justify-between mb-2 text-white">
-                <span>Trusted Company</span>
-                <span>94%</span>
-              </div>
-              <div className="w-full bg-gray-700  h-2.5">
-                <div
-                  className="bg-orange-500 h-2.5 "
-                  style={{ width: "94%" }}
-                ></div>
-              </div>
-            </div>
-            <ul className="mb-8 space-y-2 list-none">
-              <li className="flex items-center text-white">
-                <span className="mr-2 font-bold text-orange-500">✔</span>{" "}
-                Constant Improvement
-              </li>
-              <li className="flex items-center text-white">
-                <span className="mr-2 font-bold text-orange-500">✔</span>{" "}
-                Commitment to Customers
-              </li>
-              <li className="flex items-center text-white">
-                <span className="mr-2 font-bold text-orange-500">✔</span> Best
-                Quality You Can Get
-              </li>
-            </ul>
+              <div className="p-4">
+      <div className="">
+      <h3 className="text-[#b4a6db] text-xl uppercase tracking-wide mb-1 leading-6">
+      Event Detail
+              </h3>
+      </div>
+      <div className="">
+        <h2 className="text-[#2C094E] text-5xl font-semibold leading-loose max-md:text-3xl">About Business and Marketing</h2>
+      </div>
+      <div className="my-1">
+        <p className="text-base ">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec maximus nunc eu odio pulvinar fringilla. Vivamus vitae odio ex. Curabitur varius semper turpis eu ullamcorper. Sed pharetra libero nec lorem rutrum interdum. Aliquam egestas ligula ex, at lobortis neque efficitur in. Fusce sit amet ullamcorper ipsum. Curabitur elit lectus, rhoncus quis facilisis in, faucibus ac orci.
+        </p>
+        <p className="mt-2 text-base ">
+          Sed consectetur consectetur nulla et euismod. Proin bibendum augue sapien, vitae pulvinar quam consequat sed. Praesent sit amet convallis turpis. Vestibulum a ultrices quam.
+        </p>
+      </div>
+      <div className="my-4">
+        <h3 className="text-2xl text-[#2C094E] font-semibold">What will be covered in this session</h3>
+      </div>
+      <div className="my-4">
+        <p className="text-base ">
+          Proin at ullamcorper diam. Proin mollis vulputate dignissim. Praesent quis diam accumsan nisl pretium bibendum laoreet eget elit. Aliquam scelerisque vehicula mi tincidunt suscipit. Etiam finibus nibh dui, id mollis augue commodo et.
+        </p>
+      </div>
+      <div className="my-4">
+      <ul className="space-y-2">
+          <li className="flex items-start text-base">
+            <img src='check-mark-svgrepo-com.svg' className="w-4 h-4 font-bold text-[#2C094E] mr-2 mt-1" />
+            <span>Maecenas imperdiet porttitor eros. Aliquam ut consequat eros.</span>
+          </li>
+          <li className="flex items-start text-base">
+            <img src='check-mark-svgrepo-com.svg' className="w-4 h-4 font-bold text-[#2C094E] mr-2 mt-1" />
+            <span>Mauris placerat vehicula viverra. Praesent pellentesque diam.</span>
+          </li>
+          <li className="flex items-start text-base">
+            <img src='check-mark-svgrepo-com.svg' className="w-4 h-4 font-bold text-[#2C094E] mr-2 mt-1" />
+            <span>Fusce malesuada euismod nisl, sit amet rutrum felis nec.</span>
+          </li>
+          <li className="flex items-start text-base">
+            <img src='check-mark-svgrepo-com.svg' className="w-4 h-4 font-bold text-[#2C094E] mr-2 mt-1" />
+            <span>Etiam porttitor libero ullamcorper lectus euismod, id risus.</span>
+          </li>
+        </ul>
+      </div>
+      <div className="my-4">
+        <h3 className="text-2xl text-[#2C094E]  font-semibold">Do I need previous experience to attend</h3>
+      </div>
+      <div className="my-4">
+        <p className="text-base ">
+          Nulla facilisi. Maecenas imperdiet porttitor eros. Aliquam ut consequat eros. Mauris placerat vehicula viverra. Praesent pellentesque diam vel purus fringilla, id dapibus libero volutpat. Fusce malesuada euismod nisl, sit amet rutrum felis tempor nec. Nulla ullamcorper feugiat tincidunt. Pellentesque sed tempor risus, euismod dapibus orci. Etiam porttitor libero ullamcorper lectus euismod, id placerat risus auctor.
+        </p>
+      </div>
+    </div>
+                
 
-            <div className="mt-8">
-              <a
-                href="#"
-                className="px-4 py-2 text-white transition bg-orange-500 okshadow hover:bg-orange-600"
-              >
-                View Projects
-              </a>
+              </div>
+              <div>
+             
+           <ProfileCard/>
+
+              </div>
+
             </div>
+
           </div>
-          <div className="divimg md:max-w-[50%]">
-               <img className="object-cover w-full h-full md:block" src="https://templatekit.jegtheme.com/astrobot/wp-content/uploads/sites/285/2022/05/female-engineers-working-in-industry-factory-.jpg" alt="Background Image"/>
-          </div>
-
-
         </div>
 
-     <Services/>
-     <BlogSection/>
-        <div className="w-full h-auto md:h-[100vh] flex flex-col items-center justify-center p-4 mx-auto ">
-          <div className='flex flex-col items-center justify-center '>
-            <h1 className='mt-4 text-4xl font-bold text-orange-500 '>Largest Selection</h1>
-            <p className='mt-4 mb-4 text-slate-800' >Donec pulvinar, eros quis convallis vestibulum, neque turpis
-                iaculis mi, in ultrices nisl magna ut leo.</p>
-            <div className="grid grid-cols-5 gap-4 max-lg:grid-cols-3 max-sm:grid-cols-2 md:w-[70%]">
-            {categories.map(category => (
-              <CategoryButton
-                key={category}
-                category={category}
-                isSelected={selectedCategory === category}
-                onClick={setSelectedCategory}
+        
+
+        
+        {/* cards */}
+        <div className=" w-full h-auto  bg-[#EBE8FF] ">
+          <div className="flex flex-col items-center justify-center max-w-screen-xl mx-auto">
+            <div className="my-24 text-center ">
+              <h3 className="text-[#b4a6db] text-sm uppercase tracking-wide mb-4 leading-loose">
+                More Events
+              </h3>
+              <h1 className="text-[#2C094E] text-4xl max-md:text-2xl leading-loose">
+                Everything Counts
+              </h1>
+            </div>
+
+            {cardsData.map((card, index) => (
+              <Card
+                key={index}
+                name={card.name}
+                icon={card.icon}
+                room={card.room}
+                date={card.date}
+                time={card.time}
+                title={card.title}
+                description={card.description}
               />
             ))}
           </div>
-          </div>
-          <CategoryContent category={selectedCategory} />
         </div>
-        <Fotter />
+        
       </div>
     </>
   );
 }
 
-export default App
+export default App;

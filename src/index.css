@@ -1,32 +1,10 @@
-@keyframes animate-percent {
-    from { width: 0; }
-    to { width: 100%; }
-  }
-
-  .percentage {
-    display: block;
-    width: 0;
-    height: 24px;
-    background-color: #f0f0f0;
-    animation: animate-percent 2s ease-in-out;
-  }
-  .image-container {
-    width: 100%; /* or any desired width */
-    height: 300px; /* or any desired height */
-    background-image: url('path/to/image.jpg');
-    background-size: cover; /* or contain, etc. */
-    background-position: center center; /* optional */
+body{
+  box-sizing: border-box;
+  margin: 0%;
+  padding: 0%;
 }
-.divimg {
-  max-width: 100%;
-  height: 100vh;
-  /* or contain, or specific dimensions like 100% 100% */
 
-  /* Background Position */
-  background-position: center center; /* or any other valid position */
-
-  /* Background Repeat */
-  background-repeat: no-repeat; /* or repeat, repeat-x, repeat-y */
-
-  background-image: url(https://templatekit.jegtheme.com/astrobot/wp-content/uploads/sites/285/2022/05/female-engineers-working-in-industry-factory-.jpg);
+body {
+  font-family: 'Epilogue';
 }
+
