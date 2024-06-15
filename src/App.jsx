@@ -10,6 +10,7 @@ library.add(fab);
 library.add(fas);
 import Card from "./Components/Card";
 import ProfileCard from "./Components/ProfileCard";
+import TestimonialSlider from "./Components/TestimonialSlider";
 
 
 
@@ -204,6 +205,12 @@ function App() {
               />
             ))}
           </div>
+        </div>
+        <div className="w-full h-auto p-5 ">
+          <div>
+            <TestimonialSlider/>
+          </div>
+
         </div>
         
       </div>

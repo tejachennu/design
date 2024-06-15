@@ -1,10 +1,16 @@
 body{
   box-sizing: border-box;
   margin: 0%;
+  font-family: 'Epilogue';
   padding: 0%;
 }
 
-body {
-  font-family: 'Epilogue';
+.custom-prev-arrow {
+  left: -10px; /* Adjust based on your layout */
 }
+
+.custom-next-arrow {
+  right: -10px; /* Adjust based on your layout */
+}
+
 
